@@ -18,6 +18,7 @@ app.use(
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/events")
 connectDB();
 
 app.listen(5000, () => console.log("Server running on port 5000"));
