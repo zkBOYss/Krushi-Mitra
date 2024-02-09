@@ -9,14 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
-=======
-    "express": "^4.18.2",
->>>>>>> 4a9f0f27cbfca5ac99a85e1a4f39d0d949bdc391
     "mongoose": "^8.1.1"
   }
 }
