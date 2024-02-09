@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const Header = () => {
-    
+
   return (
     <div
-      className="flex py-5 rounded-2xl mx-2 sticky top-2 backdrop-blur-lg z-40
+      className="flex py-5 g rounded-2xl mx-2 sticky top-2 backdrop-blur-lg z-40
 	"
     >
       <div className="container mx-auto flex justify-between px-6">
