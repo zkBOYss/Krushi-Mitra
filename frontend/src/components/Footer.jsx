@@ -1,10 +1,88 @@
 import htf from "../assets/htf_logo.png";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import star from "../assets/star.svg";
+import Marquee from "react-fast-marquee";
 
 const Footer = () => {
 	return (
 		<div className=" flex flex-col justify-center">
+			<Marquee>
+				<div className="z-10 w-full bg-lightred h-12 max-sm:h-16 mt-24 max-sm:mt-6 max-sm:text-lg flex items-center text-2xl overflow-hidden justify-center font-grotesk">
+				Empowering Rural Communities
+					<img
+						src={star}
+						width={24}
+						height={24}
+						alt="star"
+						className="mx-2 pointer-events-none max-sm:w-8 max-sm:h-8  "
+					/>
+					Krushi-Mitra
+					<img
+						src={star}
+						width={24}
+						height={24}
+						alt="star"
+						className="mx-2 pointer-events-none max-sm:w-8 max-sm:h-8  "
+					/>
+					Empowering Rural Communities
+					<img
+						src={star}
+						width={24}
+						height={24}
+						alt="star"
+						className="mx-2 pointer-events-none max-sm:w-8 max-sm:h-8  "
+					/>
+					Krushi-Mitra
+					<img
+						src={star}
+						width={24}
+						height={24}
+						alt="star"
+						className="mx-2 pointer-events-none max-sm:w-8 max-sm:h-8  "
+					/>
+					Empowering Rural Communities
+					<img
+						src={star}
+						width={24}
+						height={24}
+						alt="star"
+						className="mx-2 pointer-events-none max-sm:w-8 max-sm:h-8  "
+					/>
+					Krushi-Mitra
+					<img
+						src={star}
+						width={24}
+						height={24}
+						alt="star"
+						className="mx-2 pointer-events-none max-sm:w-8 max-sm:h-8  "
+					/>
+					Empowering Rural Communities
+					<img
+						src={star}
+						width={24}
+						height={24}
+						alt="star"
+						className="mx-2 pointer-events-none max-sm:w-8 max-sm:h-8  "
+					/>
+					Krushi-Mitra
+					<img
+						src={star}
+						width={24}
+						height={24}
+						alt="star"
+						className="mx-2 pointer-events-none max-sm:w-8 max-sm:h-8  "
+					/>
+					Empowering Rural Communities
+					<img
+						src={star}
+						width={24}
+						height={24}
+						alt="star"
+						className="mx-2 pointer-events-none max-sm:w-8 max-sm:h-8  "
+					/>
+				</div>
+			</Marquee>
 			<div className="flex flex-col justify-center items-center mx-20 mt-10 max-sm:mx-5">
 				<div className="flex  justify-between w-full items-center my-1">
 					{/* Logo */}
