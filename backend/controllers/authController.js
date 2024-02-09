@@ -7,8 +7,7 @@ const User = require("../models/userModel");
 dotenv.config();
 
 const register = async (req, res) => {
-  const { username, email, password, firstName, lastName, mobileNumber } =
-    req.body;
+  const { username, email, password, firstName, lastName } = req.body;
 
   try {
     const userExists = await User.findOne({ email, username });
@@ -27,7 +26,6 @@ const register = async (req, res) => {
       lastName,
       email,
       password: hashedPassword,
-      mobileNumber,
     });
     const savedUser = await user.save();
 
@@ -52,33 +50,40 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body; // get email and password from the request body
   if (!email || !password) {
+    // check if email or password is not provided by the user
     return res.status(404).json({
       message: "Please enter valid email or password",
     });
   }
 
   try {
-    const isUserExist = await User.findOne({ email });
+    const isUserExist = await User.findOne({ email }); // check if the user exists in the database
 
     if (!isUserExist) {
+      // if the user does not exists in the database then return a message
       return res.status(404).json({
         message: "User not found, please check your email",
       });
     }
 
     const isPasswordCorrect = await bcrypt.compare(
+      // compare the password provided by the user with the password stored in the database
       password,
       isUserExist.password
     );
 
     if (isPasswordCorrect) {
+      // if the password is correct then only generate the token
       const token = jwt.sign(
         { email, username: isUserExist.username, id: isUserExist._id },
         process.env.JWT_SECRET,
         { expiresIn: "1h" }
       );
+      // Set the token as a cookie
+      res.cookie("jwt_token", token, { sameSite: "none", secure: true }); // set the token as a cookie for further use
+
       res.status(200).json({
         message: "User logged in successfully!",
         token: token,
@@ -89,14 +94,25 @@ const login = async (req, res) => {
       });
     }
   } catch (error) {
+    // if any error occurs then return the error message
     res.status(500).json({
       message: error.message,
     });
   }
 };
 
-const logout = (req, res) => {
-  res.send("Logout successful!");
+const validateToken = (req, res) => {
+  res.status(200).send({
+    userId: req.user.id,
+  });
 };
 
-module.exports = { register, login, logout };
+const logout = (req, res) => {
+  res.clearCookie("jwt_token");
+
+  res.send("Logout successful!");
+}; 
+
+module.exports = login;
+
+module.exports = { register, login, validateToken, logout };
