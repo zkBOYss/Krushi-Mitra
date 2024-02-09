@@ -1,4 +1,6 @@
 const Product = require("../models/productModel");
+const cloudinary = require("cloudinary");
+
 const getAllProducts = async (req, res) => {
 	try {
 		const products = await Product.find({});
@@ -16,6 +18,33 @@ const getAllProducts = async (req, res) => {
 	}
 };
 
+const createProduct = async (req, res) => {
+	try {
+		const productDetails = req.body;
+		const imageFiles = req.files;
+
+		const uploadPromises = imageFiles.map(async (image) => {
+			const b64 = Buffer.from(image.buffer).toString("base64");
+
+			const dataURI = "data:" + image.mimetype + ";base64," + b64;
+			const result = await cloudinary.uploader.upload(dataURI);
+			return result.url;
+		});
+
+		const imageUrls = await Promise.all(uploadPromises);
+
+		productDetails.imageUrl = imageUrls;
+
+		const product = new Product(productDetails);
+		const newProduct = await product.save();
+
+		res.status(201).json(newProduct);
+	} catch (error) {
+		res.status(400).json({
+			message: error.message,
+		});
+	}
+};
 const getSingleProduct = async (req, res) => {
 	const { productId } = req.params;
 
@@ -98,5 +127,6 @@ module.exports = {
 	getAllProducts,
 	getSingleProduct,
 	updateProduct,
+	createProduct,
 	deleteProduct,
 };
