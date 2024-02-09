@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Register from './pages/Register'
 import Layout from './layout/layout'
 import SignIn from './pages/SignIn'
+import Dashboard from './pages/Dashboard'
 
 
 function App() {
@@ -18,6 +19,14 @@ function App() {
               <Home />
             </Layout>
           }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <Layout>
+              <Dashboard   />
+            </Layout>
+          } 
         />
         <Route
           path="/register"
