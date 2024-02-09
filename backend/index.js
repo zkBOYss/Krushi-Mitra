@@ -1,11 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const connectDb = require("./config/db.js");
+const authRouter = require("./routes/authRouter");
 const app = express();
 
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
-});
+app.use(express.json());
+app.use(cors());
+app.use("/api/auth", authRouter);
 
 connectDb();
 app.listen(5000, () => {
