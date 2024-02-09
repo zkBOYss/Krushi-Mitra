@@ -3,6 +3,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Home from './pages/Home'
 import Register from './pages/Register'
 import Layout from './layout/layout'
+import SignIn from './pages/SignIn'
 
 
 function App() {
@@ -23,6 +24,14 @@ function App() {
           element={
             <Layout>
               <Register />
+            </Layout>
+          }
+        />
+        <Route
+          path="/sign-in"
+          element={
+            <Layout>
+              <SignIn />
             </Layout>
           }
         />
