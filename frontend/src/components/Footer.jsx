@@ -1,5 +1,6 @@
 import htf from "../assets/htf_logo.png";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
 	return (
@@ -10,10 +11,11 @@ const Footer = () => {
 					<div className="flex flex-col gap-2">
 						<Link
 							to="/"
-							className="lg:text-3xl md:text-3xl text-lg font-bold text-lightred font-grotesk cursor-pointer"
+							className="flex items-center gap-1 lg:text-2xl text-sm font-bold text-lightred cursor-pointer" style={{fontFamily : "Vestige Grotesk"}}
 						>
 							{" "}
-							Logo
+							<img src={logo} alt="logo" className="w-8 h-8 max-sm:w-6 max-sm:h-6" />
+							Krushi Mitra
 						</Link>
 						<div className="flex max-sm:flex-col items-center font-poppins font-bold gap-2">
 							<h1>buit at</h1>
@@ -69,7 +71,7 @@ const Footer = () => {
 				<div className="flex justify-between w-full items-center py-4">
 					{/* Copy right */}
 					<div className="text-base font-poppins text-lightgray max-sm:text-xs">
-						© 2024 logo
+						©2024 Krushi Mitra 
 					</div>
 					{/* Social Media */}
 					<div className="flex gap-1">
