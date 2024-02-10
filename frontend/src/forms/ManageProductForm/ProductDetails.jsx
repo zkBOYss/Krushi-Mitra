@@ -61,12 +61,12 @@ const ProductDetails = ({ onSave }) => {
 				encType="multipart/form-data"
 			>
 				<h1 className="text-3xl font-bold text-lightred font-grotesk">Add a Product</h1>
-				<p className="font-poppins text-lg max-sm:text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dictum pretium massa, at auctor diam ali quet ac. Etiam nec nisi.F</p>
+				<p className="font-poppins text-lg max-sm:text-base">Fill out all necessary details required for the product to be listed on marketplace </p>
 				{/* Seprator */}
 				<div className="h-px my-1 bg-black border-[1px] w-full">
 				</div>
 				{/* Add product Container */}
-				<div className="flex max-sm:flex-col p-4 gap-5 border border-lightgray rounded-md">
+				<div className="flex max-sm:flex-col p-8 max-sm:gap-4 max-sm:p-4 justify-between border border-lightgray rounded-md">
 					{/* Image Upload Section */}
 					<div className="flex flex-col w-1/2 max-sm:w-full p-4 border rounded-md border-gray-400">
 						<h2 className="text-2xl max-sm:text-xl font-bold font-grotesk text-lightgreen mb-3">Choose Product Images to upload</h2>
