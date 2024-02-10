@@ -30,37 +30,37 @@ const Marketplace = () => {
     return <h1>Loading...</h1>;
   }
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
-      <div className="rounded:lg border border-slate-300 p-5 h-fit xl:sticky top-10">
-        <div className="space-y-5">
-          <h3 className="text-lg font-semibold border-b border-slate-300 pb-5">
-            Filter by:
-          </h3>
-          {/* TODO 
-					Filter Logic (filter by vegetable, crop, etc) */}
+    <div className="flex flex-col gap-5"> 
+      <div className="gap-2 flex flex-col">
+        <h2 className="text-3xl font-bold font-grotesk text-lightgreen">Marketplace</h2>
+        <p className="font-poppins text-lg max-sm:text-base">Platform for buying, selling, or exchanging goods, services, or handicrafts ...</p>
+        {/* Seprator */}
+        <div className="h-px my-1 bg-black w-full">
         </div>
       </div>
-      <div className="flex flex-col gap-5">
-        <div className="flex justify-between items-center">
-          <span className="text-xl font-bold">
-            {products.length} products found
-          </span>
-          <select
-            // value={sortOption}
-            className="p-2 border rounded-md"
-          >
-            <option value="">Sort By</option>
-            <option value="priceAsc">Price (low to high)</option>
-            <option value="priceDesc">Price (high to low)</option>
-          </select>
-        </div>
-        {products.map((item) => (
-          <ProductCard data={item} key={item._id} />
-        ))}
-        product Data
-        <div>
-          {/* todo  */}
-          <span>1/10</span>
+      <div className="grid grid-cols-1 gap-5">
+        <div className="flex flex-col gap-5">
+          <div className="flex justify-between items-center">
+            <span className="text-xl max-sm:text-base font-grotesk max-sm:p-2  font-bold">
+              {products.length} products were found 
+            </span>
+            <select
+              // value={sortOption}
+              className="p-2 font-poppins border rounded-md"
+            >
+              <option value="">Sort By</option>
+              <option value="priceAsc">Price (low to high)</option>
+              <option value="priceDesc">Price (high to low)</option>
+            </select>
+          </div>
+          {products.map((item) => (
+            <ProductCard data={item} key={item._id} />
+          ))}
+          product Data
+          <div>
+            {/* todo  */}
+            <span>1/10</span>
+          </div>
         </div>
       </div>
     </div>
