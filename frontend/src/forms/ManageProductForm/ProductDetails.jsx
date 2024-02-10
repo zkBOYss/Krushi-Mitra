@@ -1,6 +1,8 @@
 import { FormProvider, useForm } from "react-hook-form";
+import { useAuthContext } from "../../context/AuthContext";
 
 const ProductDetails = ({ onSave }) => {
+    const user = useAuthContext()
 	const {
 		register,
 		handleSubmit,
@@ -10,6 +12,44 @@ const ProductDetails = ({ onSave }) => {
 
 	const onSubmit = handleSubmit(async (data) => {
 		console.log(data);
+        const formData = new FormData();
+		formData.append("sellerId", user.userId);
+		formData.append("name", data.name);
+		formData.append("description", data.description);
+		formData.append("price", data.price);
+		formData.append("quantity", data.quantity);
+
+		Array.from(data.imageFiles).forEach((imageFile) => {
+			formData.append("imageFiles", imageFile);
+		});
+
+		for (var pair of formData.entries()) {
+			console.log("data ", pair[0] + ", " + pair[1]);
+		}
+		try {
+			const response = await fetch(
+				"http://localhost:5000/api/products/",
+				{
+					method: "POST",
+					credentials: "include",
+					// body: JSON.stringify(data),
+					body: formData,
+				}
+			);
+
+			const responseBody = await response.json();
+
+			if (!response.ok) {
+				alert("Failed to add product!");
+				throw new Error(responseBody.message);
+			} else {
+				alert("Product added successfully");
+			}
+		} catch (err) {
+			console.error(err);
+		}
+
+		// onSave(formData);
 
 	});
 
@@ -140,8 +180,7 @@ const ProductDetails = ({ onSave }) => {
 						<span className="flex justify-end">
 							<button
 								type="submit"
-								className="text-lg bg-lightgreen py-1 my-1 px-6 text-black font-semibold font-grotesk
-								rounded-lg  hover:bg-lightyellow  hover:text-white transition-all"
+								className="text-lg bg-lightgreen py-1 my-1 px-6 text-black font-semibold font-grotesk rounded-lg  hover:bg-lightyellow  hover:text-white transition-all"
 							>
 								Add Product
 							</button>
