@@ -8,6 +8,9 @@ import Dashboard from "./pages/Dashboard";
 import AddProduct from "./pages/AddProduct";
 import EventDetails from "./forms/ManageEventForm/EventDetails";
 import Events from "./pages/Events";
+import MarketPlace from "./pages/Marketplace";
+import SingleEvent from "./pages/SingleEvent";
+import Product from "./pages/Product";
 
 function App() {
 	return (
@@ -54,6 +57,22 @@ function App() {
 					}
 				/>
 				<Route
+					path="/marketplace"
+					element={
+						<Layout>
+							<MarketPlace />
+						</Layout>
+					}
+				/>
+				<Route
+					path="/marketplace/details/:productId"
+					element={
+						<Layout>
+							<Product />
+						</Layout>
+					}
+				/>
+				<Route
 					path="/events"
 					element={
 						<Layout>
@@ -66,6 +85,14 @@ function App() {
 					element={
 						<Layout>
 							<EventDetails />
+						</Layout>
+					}
+				/>
+				<Route
+					path="/events/details/:eventId"
+					element={
+						<Layout>
+							<SingleEvent />
 						</Layout>
 					}
 				/>
