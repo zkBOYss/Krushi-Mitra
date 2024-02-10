@@ -78,7 +78,7 @@ const Events = () => {
 						<option value="priceDesc">Price (high to low)</option>
 					</select>
 				</div>
-				<div className="grid grid-cols-3 gap-5 max-sm:grid-cols-1">
+				<div className="grid grid-cols-3 gap-5 max-sm:grid-cols-1 md:grid-cols-2">
 					{events.map((item) => (
 						<EventCard data={item} key={item._id} />
 					))}
