@@ -31,7 +31,7 @@ const Product = () => {
 
 	if (!product || !product.imageUrl || product.imageUrl.length === 0) {
 		return (
-			<div className="w-full h-[300px]">
+			<div className="w-full h-[300px] ">
 				<span className="w-full h-full object-cover object-center">
 					wait for the data
 				</span>
@@ -40,13 +40,13 @@ const Product = () => {
 	}
 
 	return (
-		<div className="space-y-6 ">
+		<div className="space-y-6 border p-4 rounded-xl">
 			<div>
-				<span className="flex">Quantity : {product.quantity}</span>
-				<h1 className="text-3xl font-bold">{product.name}</h1>
+				<h1 className="flex gap-1 font-grotesk text-2xl"><h1 className="text-lightred font-semibold">Product Name:</h1> {product.name}</h1>
 			</div>
 
 			<div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
 				{/* TODO : multiple images logic */}
 				{product.imageUrl.map((image, index) => (
 					<img
@@ -58,23 +58,34 @@ const Product = () => {
 				))}
 			</div>
 
-			<div className="flex flex-col items-start">
-				<span>Seller Id: {product.sellerId}</span>
-				<span>Price/kg: {product.price}</span>
-				<button
-					className={
-						product.isSold
-							? "bg-red-500 px-6 py-2 rounded-sm text-white font-semibold"
-							: "bg-green-500 px-6 py-2 rounded-sm text-white font-semibold"
-					}
-				>
-					{product.isSold ? "Sold" : "Buy"}
-				</button>
+
+			<div className="flex flex-col items-start font-grotesk">
+				<div className="flex justify-between w-full">
+					<span className="flex gap-1"><div className="font-medium text-lightgreen">Quantity :</div> {product.quantity}</span>
+					<span className="flex gap-1"><div className="font-medium text-lightgreen">Price/kg:</div> {product.price}₹</span>
+				</div>
+
 			</div>
 
-			<div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr]">
-				<div className="whitespace-pre-line">{product.description}</div>
+			<div className="flex flex-col">
+				<div className="flex flex-col border p-4 rounded-lg border-lightgray">
+					<h2 className="text-xl max-sm:text-xl font-bold font-grotesk text-black mb-3">Product Details</h2>
+					{/* Seprator */}
+					<div className="h-px my-1 bg-black border-[1px] border-lightgray w-full mb-3">
+					</div>
+					<div className="whitespace-pre-line">{product.description}</div>
+				</div>
+
 			</div>
+			<button
+				className={
+					product.isSold
+						? "text-lg bg-lightred py-1 px-6 text-bla</h2>ck font-semibold font-grotesk rounded-lg  hover:bg-lightgreen  hover:text-white transition-all"
+						: "text-lg bg-lightgreen py-1 px-6 text-black font-semibold font-grotesk rounded-lg  hover:bg-lightyellow  hover:text-white transition-all"
+				}
+			>
+				{product.isSold ? "Sold" : "Buy"}
+			</button>
 		</div>
 	);
 };
