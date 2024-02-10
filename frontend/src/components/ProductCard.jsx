@@ -12,7 +12,7 @@ const ProductCard = ({ data }) => {
   }
 
   return (
-    <div className="grid grid-row-1 max-sm:grid-cols-1  border border-slate-300 rounded-lg p-4 gap-8  ">
+    <div className="grid grid-row-1 max-sm:grid-cols-1 border border-slate-300 rounded-lg p-4 gap-8  ">
       <div className="w-full h-[300px] max-sm:h-fit">
         <img
           src={data.imageUrl[0]}
@@ -50,8 +50,7 @@ const ProductCard = ({ data }) => {
           <div className="flex flex-col items-end ">
             <Link
               to={`/marketplace/details/${data._id}`}
-              className="flex gap-1 items-center text-lg bg-lightgreen py-1 px-6 text-black font-semibold font-grotesk
-              rounded-lg  hover:bg-lightred  hover:text-white transition-all"
+              className="text-lg bg-lightgreen py-1 px-6 text-white font-semibold font-grotesk rounded-lg  hover:bg-lightyellow  hover:text-black transition-all"
             >
               View More
             </Link>

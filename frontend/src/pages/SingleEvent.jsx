@@ -43,7 +43,7 @@ const SingleEvent = () => {
 	const formattedDate = formatDate(event.date);
 
 	return (
-		<div className="flex flex-col p-4 border">
+		<div className="flex flex-col p-4 border rounded-lg border-lightgray">
 			<div className="flex flex-col">
 				<h1 className="text-2xl max-sm:text-lg gap-1 font-bold font-grotesk flex"><div className="text-lightred ">Event Name: </div>{event.name}</h1>
 				{/* Seprator */}
@@ -55,10 +55,10 @@ const SingleEvent = () => {
 				<img
 					src={event.imageUrl}
 					alt={event.name}
-					className="rounded-md w-1/2 max-sm:w-full h-full object-cover object-center"
+					className="rounded-md w-1/2 max-sm:w-full h-[300px] object-cover object-center"
 				/>
 				<div className="flex flex-col w-1/2 max-sm:w-full gap-4">
-					<div className="flex w-full h-full flex-col p-4 border rounded-md ">
+					<div className="flex w-full h-full flex-col p-4 border border-lightgray rounded-md ">
 						<div className="flex flex-col">
 							<h1 className="font-grotesk font-bold text-lg">Event Description</h1>
 							{/* Seprator */}
@@ -94,10 +94,10 @@ const SingleEvent = () => {
 								</div>
 
 							</div>
-							<span className="flex text-lightred font-grotesk gap-1 text-sm "><h1 className="font-bold">*Organizers:</h1> {event.organizer}</span>
+							<span className="flex text-black font-grotesk gap-1 font-bold  text-sm "><span className=" text-lightred font-medium">*Organizers:</span> {event.organizer}</span>
 						</div>
 						<div className="flex flex-col">
-							<button className="text-lg bg-lightgreen py-1 px-6 text-black font-semibold font-grotesk rounded-lg  hover:bg-lightyellow  hover:text-white transition-all">
+							<button className="text-lg bg-lightgreen py-1 px-6 text-white font-semibold font-grotesk rounded-lg  hover:bg-lightyellow  hover:text-black transition-all">
 								Attend
 							</button>
 

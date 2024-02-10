@@ -41,27 +41,24 @@ const Events = () => {
 				<div className="h-px my-1 bg-black w-full">
 				</div>
 			</div>
-			<div className="flex flex-col gap-5 ">
+			<div className="gap-2 flex flex-col">
 				<div className="flex justify-between items-center">
-					<span className="text-xl font-bold font-grotesk">
+					<span className="text-xl max-sm:text-base font-bold font-grotesk">
 						{events.length} events found
 					</span>
-
 					<select
 						// value={sortOption}
-						className="p-2 font-poppins border rounded-md"
+						className="p-2 max-sm:p-1 font-poppins border rounded-md"
 					>
 						<option value="">Sort By</option>
 						<option value="priceAsc">Price (low to high)</option>
 						<option value="priceDesc">Price (high to low)</option>
 					</select>
 				</div>
-				{events.map((item) => (
-					<EventCard data={item} key={item._id} />
-				))}
-				<div>
-					{/* todo  */}
-					<span>1/10</span>
+				<div className="grid grid-cols-3 gap-5 max-sm:grid-cols-1">
+					{events.map((item) => (
+						<EventCard data={item} key={item._id} />
+					))}
 				</div>
 			</div>
 		</div>

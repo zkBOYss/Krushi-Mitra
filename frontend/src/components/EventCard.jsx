@@ -12,7 +12,7 @@ const EventCard = ({ data }) => {
 
 	const formattedDate = formatDate(data.date);
 	return (
-		<div className="grid grid-cols-1 xl:grid-cols-[2fr_3fr] border border-slate-300 rounded-lg p-8 gap-8">
+		<div className="grid grid-row-1 border max-sm:grid-cols-1 border-slate-300 rounded-lg p-4 gap-8">
 			<div className="w-full h-[300px] max-sm:h-fit">
 				<img
 					src={data.imageUrl}
@@ -26,9 +26,9 @@ const EventCard = ({ data }) => {
 				<div className="flex font-grotesk">
 					<Link
 						to={`/events/details/${data._id}`}
-						className="flex gap-1 text-xl font-bold cursor-pointer"
+						className="flex gap-1 text-xl  cursor-pointer"
 					>
-						<h1 className="text-lightred f">Organizer:</h1>
+						<h1 className="text-lightred font-semibold">Organizer:</h1>
 						{data.name}
 					</Link>
 				</div>
@@ -42,7 +42,7 @@ const EventCard = ({ data }) => {
 					</div>
 				</div>
 
-				<div className="flex gap-10 max-sm:gap-2 max-sm:flex-col font-poppins font-light">
+				<div className="flex gap-10 max-sm:gap-2 max-sm:flex-col font-poppins font-light text-base max-sm:text-sm">
 					<div className="flex gap-1 items-center">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
 							<path d="M13.6177 21.367C13.1841 21.773 12.6044 22 12.0011 22C11.3978 22 10.8182 21.773 10.3845 21.367C6.41302 17.626 1.09076 13.4469 3.68627 7.37966C5.08963 4.09916 8.45834 2 12.0011 2C15.5439 2 18.9126 4.09916 20.316 7.37966C22.9082 13.4393 17.599 17.6389 13.6177 21.367Z" stroke="green" strokeWidth="1" />
@@ -68,16 +68,15 @@ const EventCard = ({ data }) => {
 				<div className="flex flex-col items-start justify-center gap-1">
 					<Link
 						to={`/events/details/${data._id}`}
-						className="text-lg bg-lightgreen py-1 px-6 text-black font-semibold font-grotesk
-						rounded-lg  hover:bg-lightyellow  hover:text-white transition-all"
+						className="text-lg bg-lightgreen py-1 px-6 text-white font-semibold font-grotesk rounded-lg  hover:bg-lightyellow  hover:text-black transition-all"
 					>
 						View More
 					</Link>
 
 					<div className="flex items-center">
-						<span className="ml-1 text-sm font-poppins">
-							Organized By :{" "}
-							<span className="text-lightred font-bold">{data.organizer}</span>
+						<span className="flex text-lightred font-grotesk gap-1 text-sm">
+							*Organized By :{" "}
+							<span className="text-black underline cursor-pointer font-bold">{data.organizer}</span>
 						</span>
 					</div>
 				</div>

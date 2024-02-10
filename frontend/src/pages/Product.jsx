@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Product = () => {
 	const { productId } = useParams();
@@ -42,50 +44,54 @@ const Product = () => {
 	return (
 		<div className="space-y-6 border p-4 rounded-xl">
 			<div>
-				<h1 className="flex gap-1 font-grotesk text-2xl"><h1 className="text-lightred font-semibold">Product Name:</h1> {product.name}</h1>
-			</div>
-
-			<div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-
-				{/* TODO : multiple images logic */}
-				{product.imageUrl.map((image, index) => (
-					<img
-						src={image}
-						key={index}
-						alt={product.name}
-						className="rounded-md w-full h-full object-cover object-center"
-					/>
-				))}
-			</div>
-
-
-			<div className="flex flex-col items-start font-grotesk">
-				<div className="flex justify-between w-full">
-					<span className="flex gap-1"><div className="font-medium text-lightgreen">Quantity :</div> {product.quantity}</span>
-					<span className="flex gap-1"><div className="font-medium text-lightgreen">Price/kg:</div> {product.price}₹</span>
+				<h1 className="flex gap-1 font-grotesk text-3xl max-sm:text-xl"><h1 className="text-lightred font-semibold">Product Name:</h1> {product.name}</h1>
+				{/* Seprator */}
+				<div className="h-px my-1 bg-black w-full">
 				</div>
-
 			</div>
-
-			<div className="flex flex-col">
-				<div className="flex flex-col border p-4 rounded-lg border-lightgray">
-					<h2 className="text-xl max-sm:text-xl font-bold font-grotesk text-black mb-3">Product Details</h2>
-					{/* Seprator */}
-					<div className="h-px my-1 bg-black border-[1px] border-lightgray w-full mb-3">
+			<div className="flex max-sm:flex-col gap-4 max-sm:gap-4 w-full justify-between">
+				<div className="w-1/2 flex gap-4">
+					<Carousel useKeyboardArrows={true} >
+						{/* TODO : multiple images logic */}
+						{product.imageUrl.map((image, index) => (
+							<img
+								src={image}
+								key={index}
+								alt={product.name}
+								className="rounded-md w-full h-full object-cover object-center"
+							/>
+						))}
+					</Carousel>
+				</div>
+				<div className="w-1/2 flex flex-col max-sm:w-full gap-2">
+					<div className="flex flex-col h-full border p-4 rounded-lg border-lightgray">
+						<h2 className="text-xl max-sm:text-lg font-bold font-grotesk text-black mb-3">Product Details</h2>
+						{/* Seprator */}
+						<div className="h-px my-1 bg-black border-[1px] border-lightgray w-full mb-3">
+						</div>
+						<div className="whitespace-pre-line font-poppins">{product.description}</div>
 					</div>
-					<div className="whitespace-pre-line">{product.description}</div>
-				</div>
+					<div className="flex flex-col items-end gap-4">
+						<div className="flex flex-col items-end w-full justify-between font-grotesk">
+							<div className="flex justify-between w-full">
+								<span className="flex gap-1"><div className="font-medium text-lightgreen">Quantity :</div> {product.quantity}</span>
+								<span className="flex gap-1"><div className="font-medium text-lightgreen">Price/kg:</div> {product.price}₹</span>
+							</div>
 
+						</div>
+						<button
+							className={
+								product.isSold
+									? "text-lg bg-lightred py-1 px-6 text-white font-semibold font-grotesk rounded-lg  hover:bg-lightgreen  hover:text-white transition-all"
+									: "text-lg bg-lightgreen py-1 px-6 text-white font-semibold font-grotesk rounded-lg  hover:bg-lightyellow  hover:text-white transition-all"
+							}
+						>
+							{product.isSold ? "Sold" : "Buy"}
+						</button>
+					</div>
+				</div>
 			</div>
-			<button
-				className={
-					product.isSold
-						? "text-lg bg-lightred py-1 px-6 text-bla</h2>ck font-semibold font-grotesk rounded-lg  hover:bg-lightgreen  hover:text-white transition-all"
-						: "text-lg bg-lightgreen py-1 px-6 text-black font-semibold font-grotesk rounded-lg  hover:bg-lightyellow  hover:text-white transition-all"
-				}
-			>
-				{product.isSold ? "Sold" : "Buy"}
-			</button>
+
 		</div>
 	);
 };
