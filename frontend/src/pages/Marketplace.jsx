@@ -38,6 +38,20 @@ const Marketplace = () => {
         <div className="h-px my-1 bg-black w-full">
         </div>
       </div>
+      <div className="flex w-full items-center justify-between">
+        <span className="text-xl font-semibold font-grotesk">
+          {products.length} products found
+        </span>
+
+        <select
+          // value={sortOption}
+          className="p-2 font-poppins border rounded-md"
+        >
+          <option value="">Sort By</option>
+          <option value="priceAsc">Price (low to high)</option>
+          <option value="priceDesc">Price (high to low)</option>
+        </select>
+      </div>
       <div className="grid grid-cols-3 gap-5">
 
         {products.map((item) => (
