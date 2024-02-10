@@ -5,6 +5,7 @@ import Register from './pages/Register'
 import Layout from './layout/layout'
 import SignIn from './pages/SignIn'
 import Dashboard from './pages/Dashboard'
+import AddProduct from './pages/AddProduct'
 
 
 function App() {
@@ -41,6 +42,14 @@ function App() {
           element={
             <Layout>
               <SignIn />
+            </Layout>
+          }
+        />
+        <Route
+          path="/add-products"
+          element={
+            <Layout>
+              <AddProduct />
             </Layout>
           }
         />
