@@ -6,9 +6,17 @@ const Events = () => {
 	const [events, setEvents] = useState([]);
 	const getEvents = async () => {
 		try {
-			const response = await fetch("http://localhost:5000/api/events", {
-				credentials: "include",
-			});
+			// neurelo endpoint to fetch all products
+			const headers = new Headers();
+			headers.append("Content-Type", "application/json");
+			headers.append("X-API-KEY", import.meta.env.VITE_NEURELO_KEY);
+			const response = await fetch(
+				"https://us-east-2.aws.neurelo.com/rest/events",
+				{
+					method: "GET",
+					headers: headers,
+				}
+			);
 
 			if (!response.ok) {
 				throw new Error("Error fetching events");
@@ -23,7 +31,17 @@ const Events = () => {
 		const fetchEvents = async () => {
 			const eventData = await getEvents();
 			console.log("eventData: ", eventData);
-			setEvents(eventData);
+			const mappedData = eventData.data.map((item) => ({
+				date: item.date,
+				description: item.description,
+				_id: item.id,
+				imageUrl: item.imageUrl,
+				name: item.name,
+				organizer: item.organizer,
+				time: item.time,
+				venue: item.venue,
+			}));
+			setEvents(mappedData);
 		};
 
 		fetchEvents();
@@ -35,11 +53,16 @@ const Events = () => {
 	return (
 		<div className="flex flex-col gap-5">
 			<div className="gap-2 flex flex-col">
-				<h2 className="text-3xl font-bold font-grotesk text-lightgreen">Events	</h2>
-				<p className="font-poppins text-lg max-sm:text-base">List impactful events for rural communities. Seamless registration, mobile notifications. Join us in making a difference!</p>
+				<h2 className="text-3xl font-bold font-grotesk text-lightgreen">
+					Events{" "}
+				</h2>
+				<p className="font-poppins text-lg max-sm:text-base">
+					List impactful events for rural communities. Seamless
+					registration, mobile notifications. Join us in making a
+					difference!
+				</p>
 				{/* Seprator */}
-				<div className="h-px my-1 bg-black w-full">
-				</div>
+				<div className="h-px my-1 bg-black w-full"></div>
 			</div>
 			<div className="gap-2 flex flex-col">
 				<div className="flex justify-between items-center">
