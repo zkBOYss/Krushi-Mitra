@@ -3,6 +3,8 @@ import chakra2 from "../assets/chakra-2.svg";
 import chakra3 from "../assets/chakra-3.svg";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import HowWorks from "../components/HowWorks";
+
 
 function Home() {
   const [rotation, setRotation] = useState(0);
@@ -15,9 +17,9 @@ function Home() {
   }, []);
   return (
     <div className="flex flex-col">
-      <div className="flex items-center mx-20 justify-between mt-10 max-sm:mx-5 max-sm:flex-col max-sm:gap-10">
+      <div className="flex items-center justify-between mt-10  max-sm:flex-col max-sm:gap-10">
         <div className="flex-col w-1/2 max-sm:w-full relative">
-          <h1 className="text-5xl font-bold max-sm:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-lightgreen via-lightyellow to-lightred font-grotesk">
+          <h1 className="text-5xl font-bold max-sm:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-lightgreen via-lightyellow to-lightred font-grotesk">
             Welcome to Krushi-Mitra
           </h1>
           <div className="flex flex-col gap-2">
@@ -70,7 +72,7 @@ function Home() {
           />
         </div>
       </div>
-
+      <HowWorks />  
     </div>
   );
 }
