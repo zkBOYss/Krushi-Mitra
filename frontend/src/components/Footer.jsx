@@ -96,7 +96,7 @@ const Footer = () => {
 							Krushi Mitra
 						</Link>
 						<div className="flex max-sm:flex-col items-center font-poppins font-bold gap-2">
-							<h1>buit at</h1>
+							<h1>built at</h1>
 							<Link
 								to="https://hackthisfall.tech/"
 								target="_blank"

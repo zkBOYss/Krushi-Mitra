@@ -17,8 +17,8 @@ function Home() {
         <div className="flex flex-col">
             <div className="flex items-center mx-20 justify-between mt-10 max-sm:mx-5 max-sm:flex-col max-sm:gap-10">
                 <div className="flex-col w-1/2 max-sm:w-full relative">
-                    <h1 className="text-5xl font-bold text bg-clip-text text-transparent bg-gradient-to-r from-lightgreen via-lightyellow to-lightred font-grotesk">Revolutionzing Rural Life</h1>
-                    <p className="text-xl font-poppins font-normal">Krushi-Mitra is a transformative platform bridging rural-urban divides by facilitating event connections. Our &apos;Community Catalyst &apos; feature empowers users to list beneficial events, fostering collaboration between government, urban, and rural communities. </p>
+                    <h1 className="text-5xl font-bold max-sm:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-lightgreen via-lightyellow to-lightred font-grotesk">Revolutionzing Rural Life</h1>
+                    <p className="text-xl max-sm:text-base font-poppins font-normal">Krushi-Mitra is a transformative platform bridging rural-urban divides by facilitating event connections. Our &apos;Community Catalyst &apos; feature empowers users to list beneficial events, fostering collaboration between government, urban, and rural communities. </p>
                     <img src={chakra3} alt="chakra1" width={500} height={500} className="absolute pointer-events-none -left-80 -top-80 max-sm:-left-36 max-sm:-top-56 -z-10 " style={{ transform: `rotate(${-rotation}deg)` }} />
                 </div>
                 <div className="flex relative">

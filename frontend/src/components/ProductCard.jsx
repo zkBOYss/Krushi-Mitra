@@ -12,7 +12,7 @@ const ProductCard = ({ data }) => {
   }
 
   return (
-    <div className="grid grid-cols-2 max-sm:grid-cols-1 xl:grid-cols-[2fr_3fr] border border-slate-300 rounded-lg p-8 gap-8">
+    <div className="grid grid-row-1 max-sm:grid-cols-1  border border-slate-300 rounded-lg p-4 gap-8  ">
       <div className="w-full h-[300px] max-sm:h-fit">
         <img
           src={data.imageUrl[0]}
