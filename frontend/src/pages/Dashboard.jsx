@@ -27,16 +27,17 @@ const Dashboard = () => {
 	}
 
 	return (
-		<div className="flex flex-col gap-10 mt-5 h-screen mb-24">
-			<div className="flex flex-col">
-				<h1 className="text-4xl font-bold font-grotesk text-lightred max-sm:text-3xl">
+		<div className="flex flex-col gap-10 mt-5  mb-24">
+			<div className="flex flex-col gap-2">
+				<h1 className="text-3xl font-bold font-grotesk text-lightred max-sm:text-3xl">
 					Dashboard Page
 				</h1>
 				<p className="font-poppins text-lg max-sm:text-base">Central hub displaying registered content details for efficient access, tracking, and management by authorized users.</p>
+				{/* Seprator */}
+				<div className="h-px my-1 bg-black border-[1px] w-full">
+				</div>
 			</div>
-			{/* Seprator */}
-			<div className="h-px my-1 bg-black border-[1px] w-full">
-			</div>
+
 			<div className="flex flex-col items-start max-sm:items-center gap-5 p-10 border border-lightgray rounded-lg">
 				{/* Heading */}
 				<h2 className="text-xl font-grotesk text-black font-semibold">User Information</h2>
@@ -48,7 +49,7 @@ const Dashboard = () => {
 					<div className="flex flex-col gap-1 items-start">
 						<img
 							className="bg-gray-300 h-40 rounded-xl w-40 object-cover object-center "
-							src="https://lw3-user-avatars.s3.us-east-2.amazonaws.com/9d64ef13-2ee0-4585-890d-b3747df70e79?1689070119476"
+							src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg"
 						/>
 						<p className="text-sm font-grotesk text-red-600">*user avatar</p>
 					</div>
