@@ -1,41 +1,75 @@
-import home_illustration from "../assets/home_illustration.png"
-import chakra2 from "../assets/chakra-2.svg"
-import chakra3 from "../assets/chakra-3.svg"
+import home_illustration from "../assets/home_illustration.png";
+import chakra2 from "../assets/chakra-2.svg";
+import chakra3 from "../assets/chakra-3.svg";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Home() {
-    const [rotation, setRotation] = useState(0);
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setRotation((prevRotation) => prevRotation + 1);
-        }, 80);
+  const [rotation, setRotation] = useState(0);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setRotation((prevRotation) => prevRotation + 1);
+    }, 80);
 
-        return () => clearInterval(intervalId);
-    }, []);
-    return (
-        <div className="flex flex-col">
-            <div className="flex items-center mx-20 justify-between mt-10 max-sm:mx-5 max-sm:flex-col max-sm:gap-10">
-                <div className="flex-col w-1/2 max-sm:w-full relative">
-                    <h1 className="text-5xl font-bold max-sm:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-lightgreen via-lightyellow to-lightred font-grotesk">Revolutionzing Rural Life</h1>
-                    <p className="text-xl max-sm:text-base font-poppins font-normal">Krushi-Mitra is a transformative platform bridging rural-urban divides by facilitating event connections. Our &apos;Community Catalyst &apos; feature empowers users to list beneficial events, fostering collaboration between government, urban, and rural communities. </p>
-                    <img src={chakra3} alt="chakra1" width={500} height={500} className="absolute pointer-events-none -left-80 -top-80 max-sm:-left-36 max-sm:-top-56 -z-10 " style={{ transform: `rotate(${-rotation}deg)` }} />
-                </div>
-                <div className="flex relative">
-                    <img src={home_illustration} alt="home_illustration" width={350} height={350} className="pointer-events-none rounded-bl-[35%] rounded-tr-[35%]" />
-                    <img src={chakra2} alt="chakra1" width={250} height={250} className="absolute pointer-events-none left-44 -top-20 -z-10" style={{ transform: `rotate(${-rotation}deg)` }} />
-                </div>
-            </div>
-            <div>
-                <Link
-                    to="/events/add-events"
-                    className="mt-2 bg-green-500 px-4 py-2 rounded-md text-white font-bold"
-                >
-                    Add Event
-                </Link>
-            </div>
+    return () => clearInterval(intervalId);
+  }, []);
+  return (
+    <div className="flex flex-col">
+      <div className="flex items-center mx-20 justify-between mt-10 max-sm:mx-5 max-sm:flex-col max-sm:gap-10">
+        <div className="flex-col w-1/2 max-sm:w-full relative">
+          <h1 className="text-5xl font-bold max-sm:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-lightgreen via-lightyellow to-lightred font-grotesk">
+            Welcome to Krushi-Mitra
+          </h1>
+          <p className="text-xl max-sm:text-base font-poppins font-normal">
+            Krushi-Mitra is a transformative platform bridging rural-urban
+            divides by facilitating event connections. Our &apos;Community
+            Catalyst &apos; feature empowers users to list beneficial events,
+            fostering collaboration between government, urban, and rural
+            communities.{" "}
+          </p>
+          <img
+            src={chakra3}
+            alt="chakra1"
+            width={500}
+            height={500}
+            className="absolute pointer-events-none -left-80 -top-80 max-sm:-left-36 max-sm:-top-56 -z-10 "
+            style={{ transform: `rotate(${-rotation}deg)` }}
+          />
         </div>
-    );
+        <div className="flex relative">
+          <img
+            src={home_illustration}
+            alt="home_illustration"
+            width={350}
+            height={350}
+            className="pointer-events-none rounded-bl-[35%] rounded-tr-[35%]"
+          />
+          <img
+            src={chakra2}
+            alt="chakra1"
+            width={250}
+            height={250}
+            className="absolute pointer-events-none left-44 -top-20 -z-10"
+            style={{ transform: `rotate(${-rotation}deg)` }}
+          />
+        </div>
+      </div>
+      <div className="mt-[-60px] ml-20 flex flex-row gap-5">
+        <Link
+          to="/events/add-events"
+          className="mt-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-white font-bold"
+        >
+          Add Event
+        </Link>
+        <Link
+          to="/add-products"
+          className="mt-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-white font-bold"
+        >
+          Add Products
+        </Link>
+      </div>
+    </div>
+  );
 }
 
 export default Home;
