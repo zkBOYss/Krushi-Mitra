@@ -170,7 +170,7 @@ const EventDetails = () => {
 										</span>
 									)}
 								</label>
-								<label className=" text-md font-bold">
+								<label className="flex flex-col text-md font-bold">
 									Event Date
 									<DatePicker
 										required
@@ -181,17 +181,24 @@ const EventDetails = () => {
 										minDate={minDate}
 										maxDate={maxDate}
 										placeholderText="Enter Date"
-										className="bg-white p-1 focus:outline:none border rounded-md "
+										className="bg-white p-2 focus:outline:none border rounded-md "
 										wrapperClassName="datePicker"
 									/>
 								</label>
 							</div>
 							{/* Images logic */}
 							<label className="text-gray-700 text-md font-bold ">
-								<div>
-									<h2 className="text-2xl max-sm:text-lg font-bold mb-3">
-										Upload Image for the event
-									</h2>
+								<div className="flex flex-col gap-1">
+									<div className="gap-1 flex flex-col mt-2">
+										{/* Seprator */}
+										<div className="h-px my-1 bg-black w-full">
+										</div>
+										<h2 className="text-xl text-lightyellow max-sm:text-lg font-bold ">
+											Upload Image for the event
+										</h2>
+										<p className="font-poppins font-normal text-base max-sm:text-sm ">Please choose appropriate image for the event</p>
+
+									</div>
 									<div className="border rounded p-4 flex flex-col gap-4">
 										<input
 											type="file"
