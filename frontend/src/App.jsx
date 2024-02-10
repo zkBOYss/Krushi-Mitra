@@ -8,7 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import AddProduct from "./pages/AddProduct";
 import EventDetails from "./forms/ManageEventForm/EventDetails";
 import Events from "./pages/Events";
-import MarketPlace from "./pages/Marketplace";
+import Marketplace from "./pages/Marketplace";
 import SingleEvent from "./pages/SingleEvent";
 import Product from "./pages/Product";
 
@@ -60,7 +60,15 @@ function App() {
 					path="/marketplace"
 					element={
 						<Layout>
-							<MarketPlace />
+							<Marketplace />
+						</Layout>
+					}
+				/>
+				<Route
+					path="/marketplace"
+					element={
+						<Layout>
+							<Marketplace />
 						</Layout>
 					}
 				/>
