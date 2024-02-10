@@ -21,11 +21,12 @@ const ProductSchema = new mongoose.Schema({
 		unique: false,
 		required: [true, "Description is required"],
 	},
-	imageUrl: {
-		type: String,
-		unique: false,
-		required: [true, "imageUrl is required"],
-	},
+	imageUrl: [
+		{
+			type: String,
+			required: [true, "imageUrl is required"],
+		},
+	],
 	sellerId: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "User",
