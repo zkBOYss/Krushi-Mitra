@@ -62,20 +62,20 @@ const Marketplace = () => {
 				<div className="h-px my-1 bg-black w-full"></div>
 			</div>
 			<div className="flex w-full items-center justify-between">
-				<span className="text-xl font-semibold font-grotesk">
+				<span className="text-xl max-sm:text-base font-semibold font-grotesk">
 					{products.length} products found
 				</span>
 
 				<select
 					// value={sortOption}
-					className="p-2 font-poppins border rounded-md"
+					className="p-2 max-sm:p-1 font-poppins border rounded-md"
 				>
 					<option value="">Sort By</option>
 					<option value="priceAsc">Price (low to high)</option>
 					<option value="priceDesc">Price (high to low)</option>
 				</select>
 			</div>
-			<div className="grid grid-cols-3 gap-5">
+			<div className="grid grid-cols-3 gap-5 max-sm:grid-cols-1">
 				{products.map((item) => (
 					<ProductCard data={item} key={item._id} />
 				))}
