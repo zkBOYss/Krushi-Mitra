@@ -12,11 +12,11 @@ const ProductCard = ({ data }) => {
   }
 
   return (
-    <div className="grid grid-cols-2 xl:grid-cols-[2fr_3fr] border border-slate-300 rounded-lg p-8 gap-8">
-      <div className="w-full h-[300px]">
+    <div className="grid grid-cols-2 max-sm:grid-cols-1 xl:grid-cols-[2fr_3fr] border border-slate-300 rounded-lg p-8 gap-8">
+      <div className="w-full h-[300px] max-sm:h-fit">
         <img
           src={data.imageUrl[0]}
-          className="rounded-md w-full h-full object-cover object-center"
+          className="rounded-md w-full h-full max-sm:h-fit object-cover object-center"
         />
       </div>
       <div className="grid grid-rows-[1fr_2fr_1fr] gap-2">
