@@ -35,10 +35,10 @@ const ProductCard = ({ data }) => {
           </Link>
         </div>
         <div className="border border-lightgray rounded-lg h-full p-4">
-          <h1 className="font-grotesk d text-lg">Product Description</h1>
+          <h1 className="font-grotesk font-bold text-lg">Product Description</h1>
           {/* Seprator */}
           <div className="h-px my-1 bg-black bg-opacity-50 border-0 w-full"></div>
-          <div className="line-clamp-4 ">{data.description}</div>
+          <div className="line-clamp-4 font-poppins font-normal">{data.description}</div>
         </div>
         <div className="flex flex-col items-end font-grotesk gap-2">
           <div className="flex w-full justify-between p-2">
