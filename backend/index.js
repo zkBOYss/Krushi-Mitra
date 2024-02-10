@@ -4,6 +4,7 @@ const connectDB = require("./config/db.js");
 const authRoutes = require("./routes/authRoute");
 const productRoutes = require("./routes/productRoute");
 const eventRoutes = require("./routes/eventRoute");
+const userRoutes = require("./routes/userRoute");
 const cookieParser = require("cookie-parser");
 const cloudinary = require("cloudinary");
 const app = express();
@@ -25,6 +26,7 @@ cloudinary.config({
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/events", eventRoutes);
 connectDB();
