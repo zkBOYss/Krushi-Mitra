@@ -37,7 +37,7 @@ const Marketplace = () => {
 				price: item.price,
 				quantity: item.quantity,
 				sellerId: item.sellerId,
-				_id: item._id,
+				_id: item.id,
 			}));
 
 			console.log("Mapped: ", mappedData);
