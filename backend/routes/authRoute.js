@@ -1,14 +1,13 @@
 const express = require("express");
-
 const router = express.Router();
+const verifyToken = require("../middlewares/verifyToken");
 
 const {
-  register,
-  login,
-  validateToken,
-  logout,
+	register,
+	login,
+	validateToken,
+	logout,
 } = require("../controllers/authController");
-const verifyToken = require("../middlewares/verifytoken");
 
 router.get("/validate-token", verifyToken, validateToken);
 router.post("/register", register);

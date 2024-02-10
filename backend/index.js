@@ -1,11 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db.js");
+const authRoutes = require("./routes/authRoute");
+const productRoutes = require("./routes/productRoute");
+const eventRoutes = require("./routes/eventRoute");
 const cookieParser = require("cookie-parser");
+const cloudinary = require("cloudinary");
 const app = express();
-const authRoutes = require("./routes/authRouter.js");
-const productRoutes = require("./routes/productRoutes.js");
-const eventRoutes = require("./routes/eventRoutes.js");
 
 app.use(express.json());
 app.use(cookieParser());

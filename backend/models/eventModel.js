@@ -14,7 +14,7 @@ const EventSchema = mongoose.Schema({
 		required: [true, "Name is required"],
 	},
 	time: {
-		type: string,
+		type: String,
 		required: [true, "Date is required"],
 	},
 	description: {

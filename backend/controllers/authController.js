@@ -113,6 +113,4 @@ const logout = (req, res) => {
 	res.send("Logout successful!");
 };
 
-module.exports = login;
-
 module.exports = { register, login, validateToken, logout };
