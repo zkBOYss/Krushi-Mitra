@@ -20,13 +20,29 @@ function Home() {
           <h1 className="text-5xl font-bold max-sm:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-lightgreen via-lightyellow to-lightred font-grotesk">
             Welcome to Krushi-Mitra
           </h1>
-          <p className="text-xl max-sm:text-base font-poppins font-normal">
-            Krushi-Mitra is a transformative platform bridging rural-urban
-            divides by facilitating event connections. Our &apos;Community
-            Catalyst &apos; feature empowers users to list beneficial events,
-            fostering collaboration between government, urban, and rural
-            communities.{" "}
-          </p>
+          <div className="flex flex-col gap-2">
+            <p className="text-xl max-sm:text-base font-poppins font-normal">
+              Krushi-Mitra is a transformative platform bridging rural-urban
+              divides by facilitating event connections. Our &apos;Community
+              Catalyst &apos; feature empowers users to list beneficial events,
+              fostering collaboration between government, urban, and rural
+              communities.{" "}
+            </p>
+            <div className="flex flex-row gap-5 items-center max-sm:gap-2">
+              <Link
+                to="/events/add-events"
+                className="text-lg bg-lightgreen py-1 px-2 text-white font-semibold max-sm:text-sm max-sm:font-medium max-sm:rounded-md font-grotesk rounded-lg  hover:bg-lightyellow  hover:text-black transition-all"
+              >
+                Add Event
+              </Link>
+              <Link
+                to="/add-products"
+                className="text-lg bg-none py-1 px-6 text-black border-lightgreen border  font-semibold max-sm:text-sm max-sm:font-medium max-sm:rounded-md font-grotesk rounded-lg  hover:bg-lightgreen  hover:text-black transition-all"
+              >
+                Add Products
+              </Link>
+            </div>
+          </div>
           <img
             src={chakra3}
             alt="chakra1"
@@ -54,20 +70,7 @@ function Home() {
           />
         </div>
       </div>
-      <div className="mt-[-60px] ml-20 flex flex-row gap-5">
-        <Link
-          to="/events/add-events"
-          className="mt-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-white font-bold"
-        >
-          Add Event
-        </Link>
-        <Link
-          to="/add-products"
-          className="mt-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md text-white font-bold"
-        >
-          Add Products
-        </Link>
-      </div>
+
     </div>
   );
 }
