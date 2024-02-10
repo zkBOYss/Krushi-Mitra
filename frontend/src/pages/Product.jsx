@@ -40,7 +40,7 @@ const Product = () => {
 	}
 
 	return (
-		<div className="space-y-6">
+		<div className="space-y-6 ">
 			<div>
 				<span className="flex">Quantity : {product.quantity}</span>
 				<h1 className="text-3xl font-bold">{product.name}</h1>
