@@ -2,6 +2,7 @@ import home_illustration from "../assets/home_illustration.png"
 import chakra2 from "../assets/chakra-2.svg"
 import chakra3 from "../assets/chakra-3.svg"
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
     const [rotation, setRotation] = useState(0);
@@ -13,7 +14,7 @@ function Home() {
         return () => clearInterval(intervalId);
     }, []);
     return (
-        <div className="flex">
+        <div className="flex flex-col">
             <div className="flex items-center mx-20 justify-between mt-10 max-sm:mx-5 max-sm:flex-col max-sm:gap-10">
                 <div className="flex-col w-1/2 max-sm:w-full relative">
                     <h1 className="text-5xl font-bold text bg-clip-text text-transparent bg-gradient-to-r from-lightgreen via-lightyellow to-lightred font-grotesk">Revolutionzing Rural Life</h1>
@@ -26,7 +27,12 @@ function Home() {
                 </div>
             </div>
             <div>
-
+                <Link
+                    to="/events/add-events"
+                    className="mt-2 bg-green-500 px-4 py-2 rounded-md text-white font-bold"
+                >
+                    Add Event
+                </Link>
             </div>
         </div>
     );

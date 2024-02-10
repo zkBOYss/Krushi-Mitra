@@ -33,30 +33,23 @@ const Events = () => {
 		return <span>Loading...</span>;
 	}
 	return (
-		<div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
-			<div className="rounded:lg border border-slate-300 p-5 h-fit xl:sticky top-10">
-				<div className="space-y-5">
-					<h3 className="text-lg font-semibold border-b border-slate-300 pb-5">
-						Filter by:
-					</h3>
-					{/* TODO 
-            Filter Logic (filter by vegetable, crop, etc) */}
+		<div className="flex flex-col gap-5">
+			<div className="gap-2 flex flex-col">
+				<h2 className="text-3xl font-bold font-grotesk text-lightgreen">Events	</h2>
+				<p className="font-poppins text-lg max-sm:text-base">List impactful events for rural communities. Seamless registration, mobile notifications. Join us in making a difference!</p>
+				{/* Seprator */}
+				<div className="h-px my-1 bg-black w-full">
 				</div>
 			</div>
-			<div className="flex flex-col gap-5">
+			<div className="flex flex-col gap-5 ">
 				<div className="flex justify-between items-center">
-					<span className="text-xl font-bold">
+					<span className="text-xl font-bold font-grotesk">
 						{events.length} events found
 					</span>
-					<Link
-						to="/events/add-events"
-						className="mt-2 bg-green-500 px-4 py-2 rounded-md text-white font-bold"
-					>
-						Add Event
-					</Link>
+
 					<select
 						// value={sortOption}
-						className="p-2 border rounded-md"
+						className="p-2 font-poppins border rounded-md"
 					>
 						<option value="">Sort By</option>
 						<option value="priceAsc">Price (low to high)</option>
