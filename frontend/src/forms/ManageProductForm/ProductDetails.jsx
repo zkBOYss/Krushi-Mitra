@@ -66,7 +66,7 @@ const ProductDetails = ({ onSave }) => {
 				<div className="h-px my-1 bg-black border-[1px] w-full">
 				</div>
 				{/* Add product Container */}
-				<div className="flex max-sm:flex-col p-8 max-sm:gap-4 max-sm:p-4 justify-between border border-lightgray rounded-md">
+				<div className="flex max-sm:flex-col p-4 max-sm:gap-4 max-sm:p-4 justify-between border border-lightgray rounded-md">
 					{/* Image Upload Section */}
 					<div className="flex flex-col w-1/2 max-sm:w-full p-4 border rounded-md border-gray-400">
 						<h2 className="text-2xl max-sm:text-xl font-bold font-grotesk text-lightgreen mb-3">Choose Product Images to upload</h2>
