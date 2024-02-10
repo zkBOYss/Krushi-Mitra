@@ -1,4 +1,4 @@
-const { Event } = require("../models/eventModel");
+const Event = require("../models/eventModel");
 const cloudinary = require("cloudinary");
 
 const addEvent = async (req, res) => {
@@ -44,7 +44,7 @@ const getAllEvents = async (req, res) => {
 		res.json(events);
 	} catch (err) {
 		res.status(500).json({
-			message: error.message,
+			message: err.message,
 		});
 	}
 };
