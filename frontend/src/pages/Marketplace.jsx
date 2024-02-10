@@ -56,11 +56,7 @@ const Marketplace = () => {
           {products.map((item) => (
             <ProductCard data={item} key={item._id} />
           ))}
-          product Data
-          <div>
-            {/* todo  */}
-            <span>1/10</span>
-          </div>
+
         </div>
       </div>
     </div>
