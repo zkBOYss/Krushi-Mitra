@@ -4,10 +4,11 @@ import chakra3 from "../assets/chakra-3.svg";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import HowWorks from "../components/HowWorks";
-
+import { API_URL } from "../api";
 
 function Home() {
   const [rotation, setRotation] = useState(0);
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setRotation((prevRotation) => prevRotation + 1);
@@ -22,6 +23,7 @@ function Home() {
           <h1 className="text-5xl font-bold max-sm:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-lightgreen via-lightyellow to-lightred font-grotesk">
             Welcome to Krushi-Mitra
           </h1>
+
           <div className="flex flex-col gap-2">
             <p className="text-xl max-sm:text-base font-poppins font-normal">
               Krushi-Mitra is a transformative platform bridging rural-urban
@@ -72,7 +74,7 @@ function Home() {
           />
         </div>
       </div>
-      <HowWorks />  
+      <HowWorks />
     </div>
   );
 }

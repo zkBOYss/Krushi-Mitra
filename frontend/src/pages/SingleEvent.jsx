@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { API_URL } from "../api";
 
 const SingleEvent = () => {
 	const { eventId } = useParams();
@@ -8,7 +9,7 @@ const SingleEvent = () => {
 	const fetchEventById = async () => {
 		try {
 			const response = await fetch(
-				`http://localhost:5000/api/events/${eventId}`
+				`${API_URL}/events/${eventId}`
 			);
 
 			if (!response.ok) {
