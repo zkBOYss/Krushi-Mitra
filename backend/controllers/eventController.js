@@ -1,5 +1,6 @@
 const Event = require("../models/eventModel");
 const cloudinary = require("cloudinary");
+const User = require("../models/userModel");
 
 const addEvent = async (req, res) => {
 	try {
@@ -19,7 +20,7 @@ const addEvent = async (req, res) => {
 		const newEvent = new Event(eventDetails);
 
 		const event = await newEvent.save();
-
+		sendSmsToUsers(event);
 		res.status(201).json({
 			message: "Event created successfully!",
 			event,
@@ -96,6 +97,27 @@ const updateEvent = async (req, res) => {
 		res.status(500).json({
 			message: error.message,
 		});
+	}
+};
+
+const sendSmsToUsers = async (event) => {
+	try {
+		const users = await User.find({
+			mobileNumber: { $exists: true, $ne: null },
+		});
+
+		for (const user of users) {
+			const phoneNumber = user.mobileNumber;
+			const eventName = event.name;
+			const eventLocation = event.location;
+			const eventTime = event.time;
+
+			const message = `Event Reminder: ${eventName}\n happening at Location: ${eventLocation}\n at Time: ${eventTime}`;
+
+			await vonage.message.sendSms("12014646436", phoneNumber, message);
+		}
+	} catch (err) {
+		console.error(err);
 	}
 };
 
