@@ -1,8 +1,10 @@
-# Krushi-Mitra - From Village to City, Together Towards Dreams
+# Krushi-Mitra - Empowering Rural Communities
+![cover-2](https://github.com/zkBOYss/Krushi-Mitra/assets/108970936/9519a91c-c8bf-4bc8-968e-00a53ebaf596)
+
 
 ## Introduction
 
-**Krushi-Mitra** is where villages and cities unite! We're more than just a place to shop – we're a connection between farmers and city folks, bringing fresh produce and rich cultures together. Join us in celebrating diversity and supporting local communities with every purchase.
+**Krushi-Mitra** is a transformative platform bridging rural-urban divides by facilitating event connections. Our 'Community Catalyst ' feature empowers users to list beneficial events, fostering collaboration between government, urban, and rural communities.
 
 ## Features
 
@@ -11,10 +13,11 @@
 - **Fair Pricing**: Transparent pricing ensures farmers get fair compensation for their hard work.
 
 ## Tech Stack
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-**Client:** React, Tailwind CSS
+## Tools Used
 
-**Server:** Node.js, Express
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91.svg?style=for-the-badge&logo=visual-studio&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
 
 # Getting Started
 
