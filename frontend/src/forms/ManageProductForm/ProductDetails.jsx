@@ -29,15 +29,12 @@ const ProductDetails = ({ onSave }) => {
 			console.log("data ", pair[0] + ", " + pair[1]);
 		}
 		try {
-			const response = await fetch(
-				"http://localhost:5000/api/products/",
-				{
-					method: "POST",
-					credentials: "include",
-					// body: JSON.stringify(data),
-					body: formData,
-				}
-			);
+			const response = await fetch(`http://localhost:3000/products`, {
+				method: "POST",
+				credentials: "include",
+				// body: JSON.stringify(data),
+				body: formData,
+			});
 
 			const responseBody = await response.json();
 

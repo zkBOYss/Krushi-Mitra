@@ -41,7 +41,7 @@ const EventDetails = () => {
 
 		// todo : Fetch req to backend to add event
 		try {
-			const response = await fetch("http://localhost:5000/api/events/", {
+			const response = await fetch(`http://localhost:3000/events`, {
 				method: "POST",
 				credentials: "include",
 				body: formData,
@@ -223,21 +223,7 @@ const EventDetails = () => {
 											multiple
 											accept="image/*"
 											className="w-full text-gray-700 font-normal"
-											{...register("imageFile", {
-												validate: (imageFile) => {
-													const totalLength =
-														imageFile.length;
-
-													if (totalLength === 0) {
-														return "At least one image should be added";
-													}
-													if (totalLength > 1) {
-														return "Select only one image!";
-													}
-
-													return true;
-												},
-											})}
+											{...register("imageFile")}
 										/>
 									</div>
 									{errors.imageFile && (

@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { API_URL } from "../api";
 
 const AuthContext = createContext();
 
@@ -6,12 +7,9 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const loginAction = async () => {
     try {
-      const response = await fetch(
-        "http://localhost:5000/api/auth/validate-token",
-        {
-          credentials: "include",
-        }
-      );
+      const response = await fetch(`${API_URL}/auth/validate-token`, {
+        credentials: "include",
+      });
 
       if (!response.ok) {
         if (response.status === 401) {

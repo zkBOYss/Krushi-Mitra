@@ -1,0 +1,1 @@
+export const API_URL = "https://krushi-mitra-server.onrender.com/api"
