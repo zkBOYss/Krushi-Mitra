@@ -30,7 +30,7 @@ const ProductDetails = ({ onSave }) => {
 			console.log("data ", pair[0] + ", " + pair[1]);
 		}
 		try {
-			const response = await fetch(`${API_URL}:5000/products`, {
+			const response = await fetch(`${API_URL}/products`, {
 				method: "POST",
 				credentials: "include",
 				// body: JSON.stringify(data),

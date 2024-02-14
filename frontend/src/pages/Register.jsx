@@ -16,7 +16,7 @@ const Register = () => {
 	const onSubmit = handleSubmit(async (data) => {
 		console.log(data);
 		try {
-			const response = await fetch(`${API_URL}/api/auth/register`, {
+			const response = await fetch(`${API_URL}/auth/register`, {
 				method: "POST",
 				credentials: "include",
 				headers: {

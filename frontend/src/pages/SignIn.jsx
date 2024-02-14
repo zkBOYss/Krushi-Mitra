@@ -14,7 +14,7 @@ const SignIn = () => {
 
 	const { showToast } = useAppContext();
 	const onSubmit = handleSubmit(async (data) => {
-		const response = await fetch(`${API_URL}/api/auth/login`, {
+		const response = await fetch(`${API_URL}/auth/login`, {
 			method: "POST",
 			credentials: "include",
 			headers: {

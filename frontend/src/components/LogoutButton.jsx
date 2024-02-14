@@ -4,7 +4,7 @@ import { useAppContext } from "../context/AppContext";
 const LogoutButton = () => {
 	const { showToast } = useAppContext();
 	const logout = async () => {
-		const response = await fetch(`${API_URL}/api/auth/logout`, {
+		const response = await fetch(`${API_URL}/auth/logout`, {
 			credentials: "include",
 			method: "POST",
 		});
