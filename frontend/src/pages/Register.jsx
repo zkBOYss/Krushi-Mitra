@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import SignUp from "../assets/Sign_Up.svg";
 import { useAppContext } from "../context/AppContext";
+import { API_URL } from "../api";
 
 const Register = () => {
 	const {
@@ -15,17 +16,14 @@ const Register = () => {
 	const onSubmit = handleSubmit(async (data) => {
 		console.log(data);
 		try {
-			const response = await fetch(
-				"http://localhost:5000/api/auth/register",
-				{
-					method: "POST",
-					credentials: "include",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(data),
-				}
-			);
+			const response = await fetch(`${API_URL}/api/auth/register`, {
+				method: "POST",
+				credentials: "include",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
 
 			const responseBody = await response.json();
 

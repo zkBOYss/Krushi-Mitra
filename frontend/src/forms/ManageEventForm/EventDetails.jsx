@@ -3,6 +3,7 @@ import { useAuthContext } from "../../context/AuthContext";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import addEvent from "../../assets/add_task.svg";
+import { API_URL } from "../../api";
 
 const EventDetails = () => {
 	const user = useAuthContext();
@@ -41,7 +42,7 @@ const EventDetails = () => {
 
 		// todo : Fetch req to backend to add event
 		try {
-			const response = await fetch(`http://localhost:5000/events`, {
+			const response = await fetch(`${API_URL}/events`, {
 				method: "POST",
 				credentials: "include",
 				body: formData,
