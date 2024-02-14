@@ -41,7 +41,7 @@ const EventDetails = () => {
 
 		// todo : Fetch req to backend to add event
 		try {
-			const response = await fetch(`http://localhost:3000/events`, {
+			const response = await fetch(`http://localhost:5000/events`, {
 				method: "POST",
 				credentials: "include",
 				body: formData,
