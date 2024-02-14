@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import SignUp from "../assets/Sign_Up.svg";
+import { useAppContext } from "../context/AppContext";
 
 const Register = () => {
 	const {
@@ -9,6 +10,7 @@ const Register = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
+	const { showToast } = useAppContext();
 	const navigate = useNavigate();
 	const onSubmit = handleSubmit(async (data) => {
 		console.log(data);
@@ -28,10 +30,13 @@ const Register = () => {
 			const responseBody = await response.json();
 
 			if (!response.ok) {
-				alert("Registration Failed!");
+				showToast({ message: "Registration Failed!", type: "ERROR" });
 				throw new Error(responseBody.message);
 			} else {
-				alert("Registration Success!");
+				showToast({
+					message: "Registration Success!",
+					type: "SUCCESS",
+				});
 				navigate("/sign-in");
 			}
 		} catch (error) {

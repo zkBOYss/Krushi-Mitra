@@ -1,8 +1,10 @@
 import { FormProvider, useForm } from "react-hook-form";
 import { useAuthContext } from "../../context/AuthContext";
+import { useAppContext } from "../../context/AppContext";
 
 const ProductDetails = ({ onSave }) => {
-    const user = useAuthContext()
+	const user = useAuthContext();
+	const { showToast } = useAppContext();
 	const {
 		register,
 		handleSubmit,
@@ -12,7 +14,7 @@ const ProductDetails = ({ onSave }) => {
 
 	const onSubmit = handleSubmit(async (data) => {
 		console.log(data);
-        const formData = new FormData();
+		const formData = new FormData();
 		formData.append("sellerId", user.userId);
 		formData.append("name", data.name);
 		formData.append("description", data.description);
@@ -40,17 +42,19 @@ const ProductDetails = ({ onSave }) => {
 			const responseBody = await response.json();
 
 			if (!response.ok) {
-				alert("Failed to add product!");
+				showToast({ message: "Failed to add product!", type: "ERROR" });
 				throw new Error(responseBody.message);
 			} else {
-				alert("Product added successfully");
+				showToast({
+					message: "Successfully added the product!",
+					type: "SUCCESS",
+				});
 			}
 		} catch (err) {
 			console.error(err);
 		}
 
 		// onSave(formData);
-
 	});
 
 	return (
@@ -60,56 +64,63 @@ const ProductDetails = ({ onSave }) => {
 				onSubmit={onSubmit}
 				encType="multipart/form-data"
 			>
-				<h1 className="text-3xl font-bold text-lightred font-grotesk">Add a Product</h1>
-				<p className="font-poppins text-lg max-sm:text-base">Fill out all necessary details required for the product to be listed on marketplace </p>
+				<h1 className="text-3xl font-bold text-lightred font-grotesk">
+					Add a Product
+				</h1>
+				<p className="font-poppins text-lg max-sm:text-base">
+					Fill out all necessary details required for the product to
+					be listed on marketplace{" "}
+				</p>
 				{/* Seprator */}
-				<div className="h-px my-1 bg-black border-[1px] w-full">
-				</div>
+				<div className="h-px my-1 bg-black border-[1px] w-full"></div>
 				{/* Add product Container */}
 				<div className="flex max-sm:flex-col p-2 gap-2 max-sm:gap-4 max-sm:p-4 justify-between border border-lightgray rounded-md">
 					{/* Image Upload Section */}
 					<div className="flex flex-col w-1/2 max-sm:w-full p-4 border rounded-md border-gray-400">
-						<h2 className="text-2xl max-sm:text-xl font-bold font-grotesk text-lightgreen mb-3">Choose Product Images to upload</h2>
+						<h2 className="text-2xl max-sm:text-xl font-bold font-grotesk text-lightgreen mb-3">
+							Choose Product Images to upload
+						</h2>
 						{/* Seprator */}
-						<div className="h-px my-1 bg-black border-[1px] w-full mb-3">
-						</div>
+						<div className="h-px my-1 bg-black border-[1px] w-full mb-3"></div>
 						<label className="text-gray-700 text-md font-bold ">
 							{/* Images upload  */}
-								<div className="border rounded p-4 flex flex-col gap-4">
-									<input
-										type="file"
-										multiple
-										accept="image/*"
-										className="w-full text-gray-700  font-grotesk font-thin "
-										{...register("imageFiles", {
-											validate: (imageFiles) => {
-												const totalLength = imageFiles.length;
+							<div className="border rounded p-4 flex flex-col gap-4">
+								<input
+									type="file"
+									multiple
+									accept="image/*"
+									className="w-full text-gray-700  font-grotesk font-thin "
+									{...register("imageFiles", {
+										validate: (imageFiles) => {
+											const totalLength =
+												imageFiles.length;
 
-												if (totalLength === 0) {
-													return "At least one image should be added";
-												}
-												if (totalLength > 6) {
-													return "Total Images cannot be more than 6";
-												}
+											if (totalLength === 0) {
+												return "At least one image should be added";
+											}
+											if (totalLength > 6) {
+												return "Total Images cannot be more than 6";
+											}
 
-												return true;
-											},
-										})}
-									/>
-								</div>
-								{errors.imageFiles && (
-									<span className="text-red-500 text-sm font-bold font-grotesk">
-										{errors.imageFiles.message}
-									</span>
-								)}
+											return true;
+										},
+									})}
+								/>
+							</div>
+							{errors.imageFiles && (
+								<span className="text-red-500 text-sm font-bold font-grotesk">
+									{errors.imageFiles.message}
+								</span>
+							)}
 						</label>
 					</div>
 					<div className="font-grotesk p-4 border rounded-md border-gray-400">
-						<h2 className="text-2xl max-sm:text-xl font-bold font-grotesk text-lightgreen mb-3">Product Details</h2>
-						
+						<h2 className="text-2xl max-sm:text-xl font-bold font-grotesk text-lightgreen mb-3">
+							Product Details
+						</h2>
+
 						{/* Seprator */}
-						<div className="h-px my-1 bg-black border-[1px] w-full mb-3">
-						</div>
+						<div className="h-px my-1 bg-black border-[1px] w-full mb-3"></div>
 						<label className="text-black text-md font-bold font-grotesk flex-1">
 							Name
 							<input

@@ -2,7 +2,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useAuthContext } from "../../context/AuthContext";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-import addEvent from "../../assets/add_task.svg"
+import addEvent from "../../assets/add_task.svg";
 
 const EventDetails = () => {
 	const user = useAuthContext();
@@ -21,7 +21,7 @@ const EventDetails = () => {
 	const minDate = new Date();
 	const maxDate = new Date();
 	maxDate.setFullYear(maxDate.getFullYear() + 1);
-
+	const { showToast } = useAuthContext();
 	const onSubmit = handleSubmit(async (data) => {
 		console.log(data);
 		const dateStr = data.eventDate.toISOString();
@@ -50,10 +50,13 @@ const EventDetails = () => {
 			const responseBody = await response.json();
 
 			if (!response.ok) {
-				alert("Failed to add event!");
+				showToast({ message: "Failed to add event!", type: "ERROR" });
 				throw new Error(responseBody.message);
 			} else {
-				alert("Event added successfully!");
+				showToast({
+					message: "Event added successfully!",
+					type: "SUCCESS",
+				});
 			}
 		} catch (err) {
 			console.error(err);
@@ -72,24 +75,36 @@ const EventDetails = () => {
 					<h1 className="text-4xl font-bold font-grotesk text-lightgreen max-sm:text-xl">
 						Add an Event
 					</h1>
-					<p className="font-poppins text-lg max-sm:text-base">List impactful events for rural communities. Join us in making a difference! Seamless registration, mobile notifications.</p>
+					<p className="font-poppins text-lg max-sm:text-base">
+						List impactful events for rural communities. Join us in
+						making a difference! Seamless registration, mobile
+						notifications.
+					</p>
 					{/* Seprator */}
-					<div className="h-px my-1 bg-black w-full">
-					</div>
+					<div className="h-px my-1 bg-black w-full"></div>
 				</div>
 				<div className="p-4 border rounded-lg font-grotesk flex max-sm:flex-col justify-between items-center">
 					<div>
-						<img src={addEvent} alt="add event illustration" className="pointer-events-none" width={500} height={500} />
+						<img
+							src={addEvent}
+							alt="add event illustration"
+							className="pointer-events-none"
+							width={500}
+							height={500}
+						/>
 					</div>
 					<div className="w-1/2 max-sm:w-full p-4 border rounded-md flex gap-2 flex-col items-start">
 						<div>
 							<h1 className="text-xl font-bold font-grotesk text-lightyellow max-sm:text-lg">
 								Event Description
 							</h1>
-							<p className="font-poppins text-base max-sm:text-sm ">Provide a brief overview of the event, including its purpose, activities, and how it will benefit rural communities. Be concise yet informative.</p>
+							<p className="font-poppins text-base max-sm:text-sm ">
+								Provide a brief overview of the event, including
+								its purpose, activities, and how it will benefit
+								rural communities. Be concise yet informative.
+							</p>
 							{/* Seprator */}
-							<div className="h-px my-1 bg-black w-full">
-							</div>
+							<div className="h-px my-1 bg-black w-full"></div>
 							<label className="text-gray-700 text-md font-bold flex-1">
 								Name
 								<input
@@ -175,7 +190,9 @@ const EventDetails = () => {
 									<DatePicker
 										required
 										selected={eventDate}
-										onChange={(date) => setValue("eventDate", date)}
+										onChange={(date) =>
+											setValue("eventDate", date)
+										}
 										selectsStart
 										startDate={eventDate}
 										minDate={minDate}
@@ -191,13 +208,14 @@ const EventDetails = () => {
 								<div className="flex flex-col gap-1">
 									<div className="gap-1 flex flex-col mt-2">
 										{/* Seprator */}
-										<div className="h-px my-1 bg-black w-full">
-										</div>
+										<div className="h-px my-1 bg-black w-full"></div>
 										<h2 className="text-xl text-lightyellow max-sm:text-lg font-bold ">
 											Upload Image for the event
 										</h2>
-										<p className="font-poppins font-normal text-base max-sm:text-sm ">Please choose appropriate image for the event</p>
-
+										<p className="font-poppins font-normal text-base max-sm:text-sm ">
+											Please choose appropriate image for
+											the event
+										</p>
 									</div>
 									<div className="border rounded p-4 flex flex-col gap-4">
 										<input
@@ -207,7 +225,8 @@ const EventDetails = () => {
 											className="w-full text-gray-700 font-normal"
 											{...register("imageFile", {
 												validate: (imageFile) => {
-													const totalLength = imageFile.length;
+													const totalLength =
+														imageFile.length;
 
 													if (totalLength === 0) {
 														return "At least one image should be added";

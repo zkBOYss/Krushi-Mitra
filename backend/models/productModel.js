@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const ProductSchema = new mongoose.Schema({
 	name: {
 		type: String,
-		unique: true,
 		required: [true, "Name is required"],
 	},
 	quantity: {
@@ -13,7 +12,6 @@ const ProductSchema = new mongoose.Schema({
 	},
 	price: {
 		type: Number,
-		unique: true,
 		required: [true, "Price is required"],
 	},
 	description: {

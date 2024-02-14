@@ -1,4 +1,7 @@
+import { useAppContext } from "../context/AppContext";
+
 const LogoutButton = () => {
+	const { showToast } = useAppContext();
 	const logout = async () => {
 		const response = await fetch("http://localhost:5000/api/auth/logout", {
 			credentials: "include",
@@ -7,7 +10,7 @@ const LogoutButton = () => {
 		if (!response.ok) {
 			throw new Error("Error during logging out!");
 		} else {
-			alert("Logged out successfully!");
+			showToast({ message: "Logged Out!", type: "SUCCESS" });
 			window.location.reload();
 		}
 	};
@@ -24,4 +27,4 @@ const LogoutButton = () => {
 	);
 };
 
-export default LogoutButton;    
+export default LogoutButton;

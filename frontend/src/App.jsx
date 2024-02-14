@@ -11,101 +11,104 @@ import Events from "./pages/Events";
 import Marketplace from "./pages/Marketplace";
 import SingleEvent from "./pages/SingleEvent";
 import Product from "./pages/Product";
+import { AppContextProvider } from "./context/AppContext";
 
 function App() {
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route
-					path="/"
-					element={
-						<Layout>
-							<Home />
-						</Layout>
-					}
-				/>
-				<Route
-					path="/dashboard"
-					element={
-						<Layout>
-							<Dashboard />
-						</Layout>
-					}
-				/>
-				<Route
-					path="/register"
-					element={
-						<Layout>
-							<Register />
-						</Layout>
-					}
-				/>
-				<Route
-					path="/sign-in"
-					element={
-						<Layout>
-							<SignIn />
-						</Layout>
-					}
-				/>
-				<Route
-					path="/add-products"
-					element={
-						<Layout>
-							<AddProduct />
-						</Layout>
-					}
-				/>
-				<Route
-					path="/marketplace"
-					element={
-						<Layout>
-							<Marketplace />
-						</Layout>
-					}
-				/>
-				<Route
-					path="/marketplace"
-					element={
-						<Layout>
-							<Marketplace />
-						</Layout>
-					}
-				/>
-				<Route
-					path="/marketplace/details/:productId"
-					element={
-						<Layout>
-							<Product />
-						</Layout>
-					}
-				/>
-				<Route
-					path="/events"
-					element={
-						<Layout>
-							<Events />
-						</Layout>
-					}
-				/>
-				<Route
-					path="/events/add-events"
-					element={
-						<Layout>
-							<EventDetails />
-						</Layout>
-					}
-				/>
-				<Route
-					path="/events/details/:eventId"
-					element={
-						<Layout>
-							<SingleEvent />
-						</Layout>
-					}
-				/>
-			</Routes>
-		</BrowserRouter>
+		<AppContextProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route
+						path="/"
+						element={
+							<Layout>
+								<Home />
+							</Layout>
+						}
+					/>
+					<Route
+						path="/dashboard"
+						element={
+							<Layout>
+								<Dashboard />
+							</Layout>
+						}
+					/>
+					<Route
+						path="/register"
+						element={
+							<Layout>
+								<Register />
+							</Layout>
+						}
+					/>
+					<Route
+						path="/sign-in"
+						element={
+							<Layout>
+								<SignIn />
+							</Layout>
+						}
+					/>
+					<Route
+						path="/add-products"
+						element={
+							<Layout>
+								<AddProduct />
+							</Layout>
+						}
+					/>
+					<Route
+						path="/marketplace"
+						element={
+							<Layout>
+								<Marketplace />
+							</Layout>
+						}
+					/>
+					<Route
+						path="/marketplace"
+						element={
+							<Layout>
+								<Marketplace />
+							</Layout>
+						}
+					/>
+					<Route
+						path="/marketplace/details/:productId"
+						element={
+							<Layout>
+								<Product />
+							</Layout>
+						}
+					/>
+					<Route
+						path="/events"
+						element={
+							<Layout>
+								<Events />
+							</Layout>
+						}
+					/>
+					<Route
+						path="/events/add-events"
+						element={
+							<Layout>
+								<EventDetails />
+							</Layout>
+						}
+					/>
+					<Route
+						path="/events/details/:eventId"
+						element={
+							<Layout>
+								<SingleEvent />
+							</Layout>
+						}
+					/>
+				</Routes>
+			</BrowserRouter>
+		</AppContextProvider>
 	);
 }
 
